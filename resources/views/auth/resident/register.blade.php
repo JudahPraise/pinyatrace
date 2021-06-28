@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <div class="card mx-4">
         <div class="card-body p-4">
-            <form method="POST" action="{{ route('resident.register') }}">
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <h1>{{ __('PinyaTrace Register') }}</h1>
                 <p class="text-muted">Create your resident account</p>
@@ -40,7 +40,7 @@
                     </div>
                     <input class="form-control" type="password" placeholder="{{ __('Confirm Password') }}" name="password_confirmation" required>
                 </div>
-                <button class="btn btn-block btn-success" type="submit">{{ __('Register') }}</button>
+                <button class="btn btn-block btn-primary" type="submit">{{ __('Register') }}</button>
             </form>
             <div class="card-footer">
                 <a href="{{ route('resident.showLogin') }}" class="d-flex align-items-center"><i class="cil-arrow-left mr-1"></i> Back to log in</a>

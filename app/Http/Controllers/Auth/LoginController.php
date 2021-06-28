@@ -42,4 +42,10 @@ class LoginController extends Controller
     {
         return view('auth.resident.log-in');
     }
+
+    public function residentLogout()
+    {
+        Auth::logout();
+        return redirect('/resident');
+    }
 }

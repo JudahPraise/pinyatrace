@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('resident');
 });
 Auth::routes();
 Route::prefix('resident')->group(function(){
@@ -23,6 +23,11 @@ Route::prefix('resident')->group(function(){
     //AUTH
     Route::get('/login', 'Auth\LoginController@showLogIn')->name('resident.showLogin');
     Route::get('/register', 'Auth\RegisterController@showRegister')->name('resident.register');
+    Route::post('/logout', 'Auth\LoginController@residentLogout')->name('resident.logout');
+
+    Route::middleware('auth')->group(function(){
+        //
+    });
 });
 Route::prefix('tracer')->group(function(){
     //ROOT
@@ -33,6 +38,10 @@ Route::prefix('tracer')->group(function(){
     Route::get('register', 'Auth\ContactTracer\RegisterController@showRegister')->name('tracer.showRegister');
     Route::post('register', 'Auth\ContactTracer\RegisterController@create')->name('tracer.register');
     Route::post('/logout', 'Auth\ContactTracer\LoginController@logout')->name('tracer.logout');
+
+    Route::middleware('auth:contact_tracer')->group(function(){
+        //
+    });
 });
 Route::prefix('establishment')->group(function(){
     //ROOT
@@ -43,5 +52,9 @@ Route::prefix('establishment')->group(function(){
     Route::get('register', 'Auth\Establishment\RegisterController@showRegister')->name('establishment.showRegister');
     Route::post('register', 'Auth\Establishment\RegisterController@create')->name('establishment.register');
     Route::post('/logout', 'Auth\Establishment\LoginController@logout')->name('establishment.logout');
+
+    Route::middleware('auth:establishment')->group(function(){
+        //
+    });
 });
 

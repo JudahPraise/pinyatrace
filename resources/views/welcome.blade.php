@@ -21,9 +21,10 @@
     </head>
     <body class="c-app">
 
-        <div class="container h-100 d-flex justify-content-center align-items-center">
-            <i class="cil-birthday-cake"></i>
-            <h1>Pinya Trace</h1>
+        <div class="container d-flex align-items-center justify-content-center min-vh-100 p-0">
+            <div class="row">
+                <img src="{{ asset('img/pinyasafe_logo.png') }}" height="500" width="500">
+            </div>
         </div>
 
         <!-- Styles -->

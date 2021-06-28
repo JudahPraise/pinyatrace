@@ -5,7 +5,7 @@
     <div class="row flex-column align-items-center">
         <h1>Contact Tracer App</h1>
         <h2></h2>
-        <form action="{{ route('logout') }}" method="POST">
+        <form action="{{ route('tracer.logout') }}" method="POST">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
         </form>

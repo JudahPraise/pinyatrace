@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -23,15 +22,6 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/establishment';
 
     /**
      * Create a new controller instance.
@@ -63,7 +53,7 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return \App\Establishment
-    */
+     */
     protected function create(Request $request)
     {
         Establishment::create([
@@ -72,11 +62,12 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('establishment.loginForm');
+        return redirect()->route('establishment');
     }
 
     protected function showRegister()
     {
         return view('auth.establishment.register');
     }
+
 }

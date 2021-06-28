@@ -40,7 +40,7 @@
                     </div>
                     <input class="form-control" type="password" placeholder="{{ __('Confirm Password') }}" name="password_confirmation" required>
                 </div>
-                <button class="btn btn-block btn-success" type="submit">{{ __('Register') }}</button>
+                <button class="btn btn-block btn-warning" type="submit">{{ __('Register') }}</button>
             </form>
             <div class="card-footer">
                 <a href="{{ route('tracer.loginForm') }}" class="d-flex align-items-center"><i class="cil-arrow-left mr-1"></i> Back to log in</a>

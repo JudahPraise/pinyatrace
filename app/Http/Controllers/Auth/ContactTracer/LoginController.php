@@ -36,7 +36,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::guard('contact_tracer')->logout();
-
-        return redirect('/');
+        return redirect('/tracer');
     }
 }
