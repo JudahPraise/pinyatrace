@@ -49,12 +49,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(Request $request)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        return Validator::make([
+            $request->name => ['required', 'string', 'max:255'],
+            $request->email => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            $request->password => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -72,10 +72,11 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('tracer');
+        return redirect()->route('tracer.loginForm');
     }
 
-    protected function showRegister(){
+    protected function showRegister()
+    {
         return view('auth.contact_tracer.register');
     }
 }

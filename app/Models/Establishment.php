@@ -23,7 +23,7 @@ class Establishment extends Authenticatable
 
     /**
      * The attributes that should be hidden for arrays.
-     *
+     *Establishment
      * @var array
      */
     protected $hidden = [

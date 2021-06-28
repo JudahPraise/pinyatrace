@@ -62,20 +62,21 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\ContactTracer
-     */
+     * @return \App\Establishment
+    */
     protected function create(Request $request)
     {
-        ContactTracer::create([
+        Establishment::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('establishment');
+        return redirect()->route('establishment.loginForm');
     }
 
-    protected function showRegister(){
+    protected function showRegister()
+    {
         return view('auth.establishment.register');
     }
 }

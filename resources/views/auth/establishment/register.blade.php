@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <div class="card mx-4">
         <div class="card-body p-4">
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('establishment.register') }}">
                 @csrf
                 <h1>{{ __('PinyaTrace Register') }}</h1>
                 <p class="text-muted">Create your establishment account</p>
