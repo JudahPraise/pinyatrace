@@ -9,7 +9,7 @@
             <div class="card-body">
               <h1>PinyaTrace Login</h1>
               <p class="text-muted">Sign In to your tracer account</p>
-              <form method="POST" action="{{ route('login') }}">
+              <form method="POST" action="{{ route('tracer.login') }}">
                   @csrf
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -54,7 +54,7 @@
                 <h2>Sign up</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 @if (Route::has('password.request'))
-                    <a href="{{ route('register') }}" class="btn btn-lg btn-outline-light mt-3" type="button">Register Now!</a>
+                    <a href="{{ route('tracer.showRegister') }}" class="btn btn-lg btn-outline-light mt-3" type="button">Register Now!</a>
                 @endif
               </div>
             </div>

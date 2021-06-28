@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth\ContactTracer;
+namespace App\Http\Controllers\Auth\Establishment;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,12 +10,12 @@ class LoginController extends Controller
 {
     public function __construct(){
 
-        $this->middleware('guest:contact_tracer', ['except' => ['logout']]);
+        $this->middleware('guest:establishment', ['except' => ['logout']]);
 
     }
 
     public function showLoginForm(){
-        return view('auth.contact_tracer.log-in');
+        return view('auth.establishment.log-in');
     }
 
     public function login(Request $request){
@@ -27,9 +27,9 @@ class LoginController extends Controller
         ]);
 
         //* Attempt to log the user in
-        if(Auth::guard('contact_tracer')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+        if(Auth::guard('establishment')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             //* If successful, then redirect to their intended location
-            return redirect()->intended(route('tracer'));
+            return redirect()->intended(route('establishment'));
         }
 
         //* If unsuccessful, redirect back to login
@@ -38,7 +38,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::guard('contact_tracer')->logout();
+        Auth::guard('establishment')->logout();
 
         return redirect('/');
     }

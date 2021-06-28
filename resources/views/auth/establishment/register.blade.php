@@ -9,7 +9,7 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <h1>{{ __('PinyaTrace Register') }}</h1>
-                <p class="text-muted">Create your resident account</p>
+                <p class="text-muted">Create your establishment account</p>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                     <span class="input-group-text">
@@ -43,7 +43,7 @@
                 <button class="btn btn-block btn-success" type="submit">{{ __('Register') }}</button>
             </form>
             <div class="card-footer">
-                <a href="{{ route('home') }}" class="d-flex align-items-center"><i class="cil-arrow-left mr-1"></i> Back to log in</a>
+                <a href="{{ route('establishment.loginForm') }}" class="d-flex align-items-center"><i class="cil-arrow-left mr-1"></i> Back to log in</a>
             </div>
         </div>
       </div>
