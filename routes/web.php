@@ -24,7 +24,7 @@ Route::prefix('resident')->group(function(){
     Route::get('/login', 'Auth\LoginController@showLogIn')->name('login');
     Route::get('/register', 'Auth\RegisterController@showRegister')->name('register');
 });
-Route::prefix('tracer')->group(function(){
+Route::middleware('auth:contact_tracer')->prefix('tracer')->group(function(){
     //ROOT
     Route::get('/', 'ContactTracer\ContactTracerController@index')->name('tracer');
     //AUTH
@@ -34,7 +34,7 @@ Route::prefix('tracer')->group(function(){
     Route::post('register', 'Auth\ContactTracer\RegisterController@create')->name('tracer.register');
     Route::post('/logout', 'Auth\ContactTracer\LoginController@logout')->name('tracer.logout');
 });
-Route::prefix('establishment')->group(function(){
+Route::middleware('auth:establishment')->prefix('establishment')->group(function(){
     //ROOT
     Route::get('/', 'Establishment\EstablishmentController@index')->name('establishment');
     //AUTH
