@@ -3,9 +3,7 @@
 @section('main')
 
 <div class="container-fluid">
-    <div class="row">
-        <h1>Dashboard</h1>
-    </div>
+  <h1>Profile</h1>
 </div>
 
 @endsection

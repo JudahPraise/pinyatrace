@@ -26,7 +26,13 @@ Route::prefix('resident')->group(function(){
     Route::post('/logout', 'Auth\LoginController@residentLogout')->name('resident.logout');
 
     Route::middleware('auth')->group(function(){
-        //
+        //DASHBOARD
+
+        //TRAVEL HISTORY
+        Route::get('/history', 'Resident\TravelHistory@index')->name('travel');
+
+        //PROFILE
+        Route::get('/profile', 'Resident\Profile@index')->name('profile');
     });
 });
 Route::prefix('tracer')->group(function(){
@@ -40,7 +46,12 @@ Route::prefix('tracer')->group(function(){
     Route::post('/logout', 'Auth\ContactTracer\LoginController@logout')->name('tracer.logout');
 
     Route::middleware('auth:contact_tracer')->group(function(){
-        //
+        //DASHBOARD
+
+        //CASES
+        Route::get('/cases', 'ContactTracer\Cases@index')->name('cases');
+        //RESIDENTS
+        Route::get('/residents', 'ContactTracer\Residents@index')->name('residents');
     });
 });
 Route::prefix('establishment')->group(function(){
@@ -54,7 +65,12 @@ Route::prefix('establishment')->group(function(){
     Route::post('/logout', 'Auth\Establishment\LoginController@logout')->name('establishment.logout');
 
     Route::middleware('auth:establishment')->group(function(){
-        //
+        //DASHBOARD
+
+        //VISITORS
+        Route::get('/visitors', 'Establishment\Visitors@index')->name('visitors');
+        //INFORMATION
+        Route::get('/information', 'Establishment\Information@index')->name('information');
     });
 });
 

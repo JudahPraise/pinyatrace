@@ -1,6 +1,6 @@
-@extends('pages.resident.layouts.main')
+@extends('layouts.app')
 
-@section('main')
+@section('app')
 <div class="c-app flex-row align-items-center" >
     <div class="container">
       <div class="row justify-content-center">

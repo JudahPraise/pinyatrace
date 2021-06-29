@@ -1,6 +1,6 @@
-@extends('pages.contact_tracer.layouts.main')
+@extends('layouts.app')
 
-@section('main')
+@section('app')
 <div class="container d-flex align-items-center min-vh-100 p-0">
   <div class="row justify-content-center w-100">
     <div class="col-md-6">
