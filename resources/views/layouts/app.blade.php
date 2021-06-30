@@ -22,17 +22,19 @@
    <!-- Main styles for this application-->
    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+   @yield('css')
 
 </head>
-<body class="c-app">
+<body class="c-body">
 
-        <main class="c-main p-0">
+        <main class="c-app p-0 bg-white">
             @yield('app')
         </main>
 
-    <!-- Styles -->
+    <!-- Scripts -->
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/coreui.bundle.min.js') }}"></script>
     <script src="{{ asset('js/coreui-utils.js') }}"></script>
+    @yield('js')
 </body>
 </html>

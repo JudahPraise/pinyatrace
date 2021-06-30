@@ -4,7 +4,7 @@
     
 <main class="c-app bg-white">
 
-    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show " id="sidebar">
  
        @include('include.establishment.sidebar')
        @include('include.establishment.topbar')
