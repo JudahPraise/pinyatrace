@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('app')
-<div class="c-app flex-row align-items-center" >
+<div class="c-app w-100 flex-row align-items-center" >
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">

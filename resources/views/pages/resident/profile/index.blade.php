@@ -11,7 +11,7 @@
 
 <div class="container-fluid mt-3">
   <div class="row">
-    <div class="card w-100 m-3">
+    <div class="card has-no-shadow w-100 m-3">
       <div class="row d-flex justify-content-center p-2">
         <a href="#">
           <img src="{{ asset('argon/img/theme/team-4.jpg') }}" class="rounded-circle" height="200" width="200">
