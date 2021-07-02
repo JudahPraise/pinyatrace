@@ -2,7 +2,7 @@
 
 @section('app')
     
-<main class="c-app bg-white">
+{{-- <main class="c-app bg-white"> --}}
 
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show " id="sidebar">
  
@@ -21,6 +21,6 @@
      
      </div>
  
- </main>
+ {{-- </main> --}}
 
 @endsection

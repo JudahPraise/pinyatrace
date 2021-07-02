@@ -32,7 +32,12 @@ Route::prefix('resident')->group(function(){
         Route::get('/history', 'Resident\TravelHistory@index')->name('travel');
 
         //PROFILE
-        Route::get('/profile', 'Resident\Profile@index')->name('profile');
+        Route::prefix('/profile')->group(function(){
+            Route::get('/', 'Resident\ProfileController@index')->name('profile');
+            Route::get('/create', 'Resident\ProfileController@create')->name('profile.create');
+            Route::post('/store', 'Resident\ProfileController@store')->name('profile.store');
+            Route::put('/update/{id}', 'Resident\ProfileController@update')->name('profile.update');
+        });
     });
 });
 Route::prefix('tracer')->group(function(){
@@ -70,7 +75,10 @@ Route::prefix('establishment')->group(function(){
         //VISITORS
         Route::get('/visitors', 'Establishment\Visitors@index')->name('visitors');
         //INFORMATION
-        Route::get('/information', 'Establishment\Information@index')->name('information');
+        Route::get('/information', 'Establishment\InformationController@index')->name('information');
+        Route::get('/create', 'Establishment\InformationController@create')->name('information.create');
+        Route::post('/store', 'Establishment\InformationController@store')->name('information.store');
+        Route::put('/update/{id}', 'Establishment\InformationController@update')->name('information.update');
     });
 });
 

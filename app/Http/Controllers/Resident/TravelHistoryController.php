@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Resident;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TravelHistory extends Controller
+class TravelHistoryController extends Controller
 {
     public function index()
     {

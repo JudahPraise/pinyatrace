@@ -19,7 +19,7 @@ class CreateContactsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('emergency_contact');
             $table->string('relationship');
-            $table->string('cp_number');
+            $table->string('ec_cp_number');
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
 </div>
 <ul class="c-sidebar-nav m-0">
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" href="{{-- route('home') --}}">
+    <a class="c-sidebar-nav-link" href="{{ route('resident') }}">
       <div class="c-sidebar-nav-icon">
         <i class="cil-speedometer"></i>
       </div>

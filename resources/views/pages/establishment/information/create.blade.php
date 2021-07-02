@@ -36,18 +36,17 @@
               <h3 class="mb-0">Company Information</h3>
             </div>
             <div class="col-4 text-right">
-              <button type="submit" value="Submit Value" class="btn btn-sm btn-primary" onclick="document.getElementById('updateForm').submit()">Update</a>
+              <button type="submit" value="Submit Value" class="btn btn-sm btn-primary" onclick="document.getElementById('createForm').submit()">Save</button>
             </div>
           </div>
         </div>
         <div class="card-body">
-          <form action="{{ route('information.update', Auth::guard('establishment')->user()->id) }}" id="updateForm" method="POST">
-            @method('PUT')
+          <form action="{{ route('information.store') }}" id="createForm" method="POST">
             @csrf
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="first_name">Company name</label>
-                <input type="text" class="form-control" id="first_name" name="company_name" value="{{ $company->information->company_name }}" required>
+                <input type="text" class="form-control" id="first_name" name="company_name" required>
                 <div class="valid-tooltip">
                   Looks good!
                 </div>
@@ -56,7 +55,7 @@
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="company_address">Address</label>
-                <input type="txt" class="form-control" id="company_address" name="company_address" value="{{ $company->information->company_address }}" required>
+                <input type="txt" class="form-control" id="company_address" name="company_address" required>
                 <div class="invalid-tooltip">
                   Please provide a valid city.
                 </div>
@@ -64,15 +63,15 @@
             </div>
             <div class="form-row">
               <div class="col-md-6 mb-3">
-                <label for="cp_number">Cellphone</label>
-                <input type="txt" class="form-control" id="cp_number" name="cp_number" value="{{ $company->information->cp_number }}" required>
+                <label for="number">Cellphone</label>
+                <input type="txt" class="form-control" id="number" name="cp_number" required>
                 <div class="invalid-tooltip">
                   Please provide a valid city.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="tel_number">Telephone</label>
-                <input type="txt" class="form-control" id="tel_number" name="tel_number" value="{{ $company->information->tel_number }}" required>
+                <input type="txt" class="form-control" id="tel_number" name="tel_number" required>
                 <div class="invalid-tooltip">
                   Please provide a valid city.
                 </div>
@@ -80,16 +79,16 @@
             </div>
             <h6 class="heading-small text-muted mb-4 text-center">Representative</h6>
             <div class="form-row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $company->representative->name }}"  required>
+                <input type="text" class="form-control" id="name" name="name"  required>
                 <div class="valid-tooltip">
                   Looks good!
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="position">Position</label>
-                <input type="text" class="form-control" id="position" name="position" value="{{ $company->representative->position }}"  required>
+                <input type="text" class="form-control" id="position" name="position"  required>
                 <div class="valid-tooltip">
                   Looks good!
                 </div>
@@ -98,7 +97,7 @@
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" name="address" value="{{ $company->representative->address }}"  required>
+                <input type="text" class="form-control" id="address" name="address"  required>
                 <div class="valid-tooltip">
                   Looks good!
                 </div>
@@ -107,14 +106,14 @@
             <div class="form-row">
               <div class="col-md-6 mb-3">
                 <label for="cp_number">Email</label>
-                <input type="text" class="form-control" id="cp_number" name="email" value="{{ $company->representative->email }}"  required>
+                <input type="text" class="form-control" id="cp_number" name="email"  required>
                 <div class="valid-tooltip">
                   Looks good!
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="cp_number">Cellphone number</label>
-                <input type="text" class="form-control" id="cp_number" name="number" value="{{ $company->representative->number }}"  required>
+                <input type="text" class="form-control" id="cp_number" name="number"  required>
                 <div class="valid-tooltip">
                   Looks good!
                 </div>
