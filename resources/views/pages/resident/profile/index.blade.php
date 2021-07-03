@@ -6,9 +6,6 @@
 @endsection
 
 @section('main')
-
-
-
 <div class="container-fluid mt-3">
   @component('components.alert')@endcomponent
   <div class="row">

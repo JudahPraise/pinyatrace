@@ -28,10 +28,19 @@ class InformationController extends Controller
     public function store(Request $request)
     {
         try {
+            $words = preg_split("/[\s,_-]+/", $request->company_name);
+            $acronym = "";
+                
+            foreach ($words as $w) {
+              $acronym .= $w[0];
+            }
+
+            // dd($acronym);
 
             Information::create([
                 'est_id' => Auth::guard('establishment')->user()->id,
                 'company_name' => $request->company_name,
+                'acronym' => $acronym.Auth::guard('establishment')->user()->id,
                 'cp_number' => $request->cp_number,
                 'tel_number' => $request->tel_number,
                 'company_address' => $request->company_address

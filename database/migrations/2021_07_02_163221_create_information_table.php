@@ -18,6 +18,7 @@ class CreateInformationTable extends Migration
             $table->unsignedBigInteger('est_id');
             $table->foreign('est_id')->references('id')->on('establishments');
             $table->string('company_name');
+            $table->string('acronym');
             $table->string('cp_number');
             $table->string('tel_number');
             $table->mediumText('company_address');

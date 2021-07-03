@@ -31,3 +31,4 @@
         <script src="{{ asset('js/main.js') }}"></script>
     </body>
 </html>
+<h1>You scanned the QR</h1>

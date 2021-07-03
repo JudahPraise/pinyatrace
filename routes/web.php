@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->route('resident');
 });
+
+//QR
+Route::get('/scanned', 'Establishment\QrController@redirect')->name('redirect');
+
 Auth::routes();
 Route::prefix('resident')->group(function(){
     //ROOT
@@ -37,6 +41,11 @@ Route::prefix('resident')->group(function(){
             Route::get('/create', 'Resident\ProfileController@create')->name('profile.create');
             Route::post('/store', 'Resident\ProfileController@store')->name('profile.store');
             Route::put('/update/{id}', 'Resident\ProfileController@update')->name('profile.update');
+        });
+        //SCANNER
+        Route::prefix('/scanner')->group(function(){
+            Route::get('/', 'Resident\ScannerController@index')->name('scanner');
+            Route::get('/cam', 'Resident\ScannerController@camera')->name('camera.scanner');
         });
     });
 });
@@ -79,6 +88,7 @@ Route::prefix('establishment')->group(function(){
         Route::get('/create', 'Establishment\InformationController@create')->name('information.create');
         Route::post('/store', 'Establishment\InformationController@store')->name('information.store');
         Route::put('/update/{id}', 'Establishment\InformationController@update')->name('information.update');
+
     });
 });
 

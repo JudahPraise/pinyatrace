@@ -17,13 +17,37 @@
           </a>
         </div>
         <div class="card-body pt-3">
-          <div class="text-center">
-            <h5 class="h3">
-              {{ Auth::guard('establishment')->user()->name }}
-            </h5>
-            <div class="h5 font-weight-300">
-              {{ Auth::guard('establishment')->user()->email }}
+          <div class="text-center mb-3">
+            @if ($company === null)
+              <h5 class="h3">
+                {{ Auth::guard('establishment')->user()->name }}
+              </h5>
+              <div class="h5 font-weight-300">
+                {{ Auth::guard('establishment')->user()->email }}
+              </div>
+            @else
+              <h5 class="h3">
+                {{ $company->information->company_name }}
+              </h5>
+              <div class="h5 font-weight-300">
+                {{ $company->information->company_address }}
+              </div>
+              <h1 class="p-3" style="font-size: 4rem">{{ $company->information->acronym }}</h1>
+              <div class="mt-3">
+                <h5 class="h3">
+                  {{ $company->information->cp_number.' '.'|'.' '.$company->information->tel_number }}
+                </h5>
+                <div class="h5 font-weight-300">
+                  {{ Auth::guard('establishment')->user()->email }}
+                </div>
+              </div>
+            @endif
+          </div>
+          <div class="row d-flex flex-column align-items-center justify-content-center">
+            <div class="visible-print text-center mb-3">
+              {!! QrCode::size(200)->generate(route('redirect')); !!}
             </div>
+            <h3>Your company QR code</h3>
           </div>
         </div>
       </div>

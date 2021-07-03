@@ -16,6 +16,14 @@
     </a>
   </li>
   <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" href="{{ route('scanner') }}">
+      <div class="c-sidebar-nav-icon">
+        <i class="cil-qr-code"></i>
+      </div>
+      QR Scanner
+    </a>
+  </li>
+  <li class="c-sidebar-nav-item">
     <a class="c-sidebar-nav-link" href="{{ route('travel') }}">
       <div class="c-sidebar-nav-icon">
         <i class="cil-walk"></i>
