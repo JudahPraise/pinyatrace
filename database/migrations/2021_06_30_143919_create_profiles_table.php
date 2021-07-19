@@ -23,8 +23,11 @@ class CreateProfilesTable extends Migration
             $table->date('dob');
             $table->string('age');
             $table->string('sex');
-            $table->mediumText('address');
+            $table->string('street');
+            $table->string('barangay');
+            $table->string('city');
             $table->string('cp_number');
+            $table->string('tel_number');
             $table->timestamps();
         });
     }

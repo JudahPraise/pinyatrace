@@ -14,6 +14,7 @@ class InformationController extends Controller
     public function index()
     {   
         $company = Establishment::where('id','=',Auth::guard('establishment')->user()->id)->with('information', 'representative')->first();
+        
         if($company === null){
             return redirect()->route('establishment.create')->with('message', 'Kindly create your personal information');
         }

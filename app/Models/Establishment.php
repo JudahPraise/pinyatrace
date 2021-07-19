@@ -50,5 +50,9 @@ class Establishment extends Authenticatable
     {
         return $this->hasOne(Representative::class, 'est_id');
     }
+
+    public function travelHistory(){
+        return $this->hasMany(TravelHistory::class);
+    }
     
 }

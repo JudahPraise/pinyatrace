@@ -17,8 +17,6 @@ Route::get('/', function () {
     return redirect()->route('resident');
 });
 
-//QR
-Route::get('/scanned', 'Establishment\QrController@redirect')->name('redirect');
 
 Auth::routes();
 Route::prefix('resident')->group(function(){
@@ -33,7 +31,7 @@ Route::prefix('resident')->group(function(){
         //DASHBOARD
 
         //TRAVEL HISTORY
-        Route::get('/history', 'Resident\TravelHistory@index')->name('travel');
+        Route::get('/history', 'Resident\TravelHistoryController@index')->name('travel');
 
         //PROFILE
         Route::prefix('/profile')->group(function(){
@@ -45,9 +43,16 @@ Route::prefix('resident')->group(function(){
         //SCANNER
         Route::prefix('/scanner')->group(function(){
             Route::get('/', 'Resident\ScannerController@index')->name('scanner');
+            Route::get('/{id}', 'Resident\ScannerController@hasScanned')->name('has.scanned');
             Route::get('/cam', 'Resident\ScannerController@camera')->name('camera.scanner');
+            //HEALTH DECLARATION
         });
+        
+        Route::post('/health-form/store/{id}', 'Establishment\QrController@healthStore')->name('health.store');
     });
+    //QR
+    Route::get('/in/{id}', 'Establishment\QrController@in')->name('in');
+    Route::get('/out/{id}', 'Establishment\QrController@out')->name('out');
 });
 Route::prefix('tracer')->group(function(){
     //ROOT
@@ -64,8 +69,11 @@ Route::prefix('tracer')->group(function(){
 
         //CASES
         Route::get('/cases', 'ContactTracer\Cases@index')->name('cases');
+        Route::post('/cases/store', 'ContactTracer\Cases@store')->name('case.store');
+        Route::put('/cases/update/{id}', 'ContactTracer\Cases@update')->name('case.update');
         //RESIDENTS
         Route::get('/residents', 'ContactTracer\Residents@index')->name('residents');
+        Route::get('/resident/travel-history/{id}', 'ContactTracer\Residents@travel')->name('travel.history');
     });
 });
 Route::prefix('establishment')->group(function(){

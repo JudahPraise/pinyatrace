@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Resident;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\Profile;
+use App\Models\Barangay;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,17 +15,18 @@ class ProfileController extends Controller
     public function index()
     {
         $resident = User::where('id','=',Auth::user()->id)->with('profile', 'contact')->first();
-
+        $barangays = Barangay::all();
        if($resident === null){
-        return redirect()->route('profile.create')->with('message', 'Kindly create your personal information');
+        return redirect()->route('profile.create')->with('message', 'Kindly create your personal information')->with(compact('barangays'));
        }
 
-       return view('pages.resident.profile.index', compact('resident'));
+       return view('pages.resident.profile.index', compact(['resident', 'barangays']));
     }
-
+    
     public function create()
     {
-        return view('pages.resident.profile.create');
+        $barangays = Barangay::all();
+        return view('pages.resident.profile.create', compact('barangays'));
     }
 
     public function store(Request $request)
@@ -38,7 +40,10 @@ class ProfileController extends Controller
                 'dob' => $request->dob,
                 'age' => $request->age,
                 'sex' => $request->sex,
-                'address' => $request->address,
+                'street' => $request->street,
+                'barangay' => $request->barangay,
+                'city' => $request->city,
+                'tel_number' => $request->tel_number,
                 'cp_number' => $request->cp_number
             ]);
     
@@ -71,7 +76,10 @@ class ProfileController extends Controller
                 'dob' => $request->dob,
                 'age' => $request->age,
                 'sex' => $request->sex,
-                'address' => $request->address,
+                'street' => $request->street,
+                'barangay' => $request->barangay,
+                'city' => $request->city,
+                'tel_number' => $request->tel_number,
                 'cp_number' => $request->cp_number
             ]);
     

@@ -81,19 +81,31 @@
           </div>
           <h6 class="heading-small text-muted mb-4 text-center">Contact information</h6>
           <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" name="address"  required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
+            <div class="col-md-4 mb-3">
+              <label for="address">Street</label>
+              <input type="text" class="form-control" id="address" name="street" required>
             </div>
+            <div class="col-md-4 mb3">
+              <label for="address">Barangay</label>
+              <select class="form-control" id="address" name="barangay">
+                @foreach ($barangays as $barangay)
+                  <option>{{ $barangay->barangay }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="address">Minicipality and Province</label>
+              <input type="text" class="form-control" id="barangay" name="city"  required>
+            </div>
+          </div>
+          <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="cp_number">Cellphone number</label>
-              <input type="text" class="form-control" id="cp_number" name="cp_number"  required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
+              <input type="text" class="form-control" id="cp_number" name="cp_number" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cp_number">Telephone number</label>
+              <input type="text" class="form-control" id="cp_number" name="tel_number"  required>
             </div>
           </div>
           <h6 class="heading-small text-muted mb-4 text-center">Emergency Contact</h6>
@@ -128,7 +140,7 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-primary" type="submit">Submit form</button>
+          <button class="btn btn-primary" type="submit" value="Submit Form">Submit form</button>
         </form>
       </div>
     </div>

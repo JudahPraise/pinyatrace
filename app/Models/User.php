@@ -39,11 +39,15 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne(Profile::class);
+        return $this->hasOne(Profile::class, 'user_id');
     }
 
     public function contact()
     {
         return $this->hasOne(Contact::class);
+    }
+
+    public function travelHistory(){
+        return $this->hasMany(TravelHistory::class);
     }
 }

@@ -7,7 +7,7 @@
   </div>
 </div>
 <ul class="c-sidebar-nav m-0">
-    <li class="c-sidebar-nav-item">
+    <li class="c-sidebar-nav-item" style="font-size: .8rem">
       <a class="c-sidebar-nav-link" href="{{ route('establishment') }}">
         <div class="c-sidebar-nav-icon">
           <i class="cil-speedometer"></i>
@@ -15,7 +15,7 @@
         Dashboard
       </a>
     </li>
-    <li class="c-sidebar-nav-item">
+    <li class="c-sidebar-nav-item" style="font-size: .8rem">
       <a class="c-sidebar-nav-link" href="{{ route('visitors') }}">
         <div class="c-sidebar-nav-icon">
           <i class="cil-find-in-page"></i>
@@ -23,7 +23,7 @@
         Visitors
       </a>
     </li>
-    <li class="c-sidebar-nav-item">
+    <li class="c-sidebar-nav-item" style="font-size: .8rem">
       <a class="c-sidebar-nav-link" href="{{ route('information') }}">
         <div class="c-sidebar-nav-icon">
           <i class="cil-address-book"></i>

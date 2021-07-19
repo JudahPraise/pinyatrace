@@ -43,12 +43,6 @@
               </div>
             @endif
           </div>
-          <div class="row d-flex flex-column align-items-center justify-content-center">
-            <div class="visible-print text-center mb-3">
-              {!! QrCode::size(200)->generate(route('redirect')); !!}
-            </div>
-            <h3>Your company QR code</h3>
-          </div>
         </div>
       </div>
     </div>
@@ -65,7 +59,7 @@
           </div>
         </div>
         <div class="card-body">
-          <form action="{{ route('information.update', Auth::guard('establishment')->user()->id) }}" id="updateForm" method="POST">
+          <form action="{{ route('information.update', '5') }}" id="updateForm" method="POST">
             @method('PUT')
             @csrf
             <div class="form-row">

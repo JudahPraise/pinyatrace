@@ -1,19 +1,17 @@
-@extends('pages.contact_tracer.layouts.main')
+@extends('pages.resident.layouts.main')
 
 @section('css')
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{ asset('argon/css/argon.css') }}" type="text/css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 @endsection
 
 @section('main')
-<div class="container-fluid pt-3">
-  @component('components.covid-updates', 
-  ['active' => $active, 'recovered' => $recovered, 'mortality' => $mortality, 'total' => $total])
-  @endcomponent
-  <div class="row p-3">
-    @component('components.top-areas', ['top' => $top, 'title' => 'Number of cases per barangay'])@endcomponent
-  </div>
+
+<div class="container-fluid d-flex justify-content-center align-items-center h-100">
+    <h2>Thank you for visiting {{ $travel->establishment_name }}</h2>
 </div>
+
 @endsection
 
 @section('js')

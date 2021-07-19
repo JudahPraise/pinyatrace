@@ -16,7 +16,7 @@
             <h3 class="mb-0">Profile</h3>
           </div>
           <div class="col-4 text-right">
-            <button type="submit" value="Submit Value" class="btn btn-sm btn-primary" onclick="document.getElementById('updateForm').submit()">Update</a>
+            <button type="submit" value="Submit Form" class="btn btn-sm btn-primary" onclick="document.getElementById('updateForm').submit()">Update</a>
           </div>
         </div>
       </div>
@@ -34,39 +34,24 @@
             <div class="col-md-4 mb-3">
               <label for="first_name">First name</label>
               <input type="text" class="form-control" id="first_name" name="first_name" value="{{ $resident->profile->first_name }}" required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
             </div>
             <div class="col-md-4 mb-3">
               <label for="middle_name">Middle name</label>
               <input type="text" class="form-control" id="middle_name" name="middle_name" value="{{ $resident->profile->middle_name }}"  required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
             </div>
             <div class="col-md-4 mb-3">
               <label for="surname">Last name</label> 
               <input type="text" class="form-control" id="surname" name="surname" value="{{ $resident->profile->surname }}" required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="dob">Date of birth</label>
               <input type="date" class="form-control" id="dob" name="dob" value="{{ $resident->profile->dob }}" required>
-              <div class="invalid-tooltip">
-                Please provide a valid city.
-              </div>
             </div>
             <div class="col-md-4 mb-3">
               <label for="age">Age</label>
               <input type="text" class="form-control" id="age" name="age" value="{{ $resident->profile->age }}" required>
-              <div class="invalid-tooltip">
-                Please provide a valid zip.
-              </div>
             </div>
             <div class="col-md-4 mb-3">
               <label for="sex">Sex</label>
@@ -74,26 +59,35 @@
                 <option class="{{ $resident->profile->sex === 'Male' ? 'selected' : ''}}">Male</option>
                 <option class="{{ $resident->profile->sex === 'Female' ? 'selected' : ''}}">Female</option>
               </select>
-              <div class="invalid-tooltip">
-                Please select a valid state.
-              </div>
             </div>
           </div>
           <h6 class="heading-small text-muted mb-4 text-center">Contact information</h6>
           <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" name="address" value="{{ $resident->profile->address }}"  required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
+            <div class="col-md-4 mb-3">
+              <label for="address">Street</label>
+              <input type="text" class="form-control" id="address" name="street" value="{{ $resident->profile->street }}"  required>
             </div>
+            <div class="col-md-4 mb3">
+              <label for="address">Barangay</label>
+              <select class="form-control" id="address" name="barangay">
+                @foreach ($barangays as $barangay)
+                  <option {{ $barangay->barangay === $resident->profile->barangay ? 'selected' : '' }}>{{ $barangay->barangay }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="address">Minicipality and Province</label>
+              <input type="text" class="form-control" id="barangay" name="city" value="{{ $resident->profile->city }}"  required>
+            </div>
+          </div>
+          <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="cp_number">Cellphone number</label>
               <input type="text" class="form-control" id="cp_number" name="cp_number" value="{{ $resident->profile->cp_number }}"  required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cp_number">Telephone number</label>
+              <input type="text" class="form-control" id="cp_number" name="tel_number" value="{{ $resident->profile->tel_number }}"  required>
             </div>
           </div>
           <h6 class="heading-small text-muted mb-4 text-center">Emergency Contact</h6>
